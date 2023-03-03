@@ -149,8 +149,6 @@ console.log(`The first console.log evaluates to 110 in the console because of or
 // For hints on building this app, scroll down.
 
 let degFahren = Number(prompt("Enter the degrees in Fahrenheit."));
-let degCel = (5 / 9) * (degFahren - 32);
-let celciusToDisplay = `${degFahren}\xB0 Fahrenheit is ${degCel}\xB0 Celcius`;
 let messageToDisplay;
 
 if (degFahren < 65) {
@@ -162,8 +160,16 @@ if (degFahren < 65) {
     messageToDisplay = `That's not a temperature. Refresh and enter the degrees in Fahrenheit as a number.`;
 }
 
-document.getElementById('celcius').innerHTML = celciusToDisplay;
-document.getElementById('message').innerHTML = messageToDisplay;
+let degCel = getDegree();
+
+function getDegree(degFahren) {
+    return (5 / 9) * (degFahren - 32);
+}
+getDegree();
+let celciusToDisplay = `${degFahren}\xB0 Fahrenheit is ${degCel}\xB0 Celcius`;
+
+document.getElementById('celciusToDisplay').innerHTML = celciusToDisplay;
+document.getElementById('messageToDisplay').innerHTML = messageToDisplay;
 
 
 
